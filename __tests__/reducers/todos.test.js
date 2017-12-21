@@ -29,4 +29,10 @@ describe('Testing todo reducer', () => {
     state = todoReducer(state, actions.completeTodo(1));
     expect(state[0].completed).toBe(false);
   });
+
+  it('can preserve the state with a wrong action call', () => {
+    const state = todoReducer(undefined, {});
+
+    expect(state).toHaveLength(0);
+  });
 });
